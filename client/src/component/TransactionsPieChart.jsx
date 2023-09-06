@@ -1,4 +1,3 @@
-// frontend/src/components/TransactionsPieChart.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Pie } from 'react-chartjs-2';
@@ -34,24 +33,28 @@ const TransactionsPieChart = () => {
 
       {/* Display pie chart */}
       <div style={{ width: '80%', margin: '0 auto' }}>
-        <Pie
-          data={{
-            labels: pieChartData.categories.map((category) => category.label),
-            datasets: [
-              {
-                data: pieChartData.itemCounts,
-                backgroundColor: [
-                  'rgba(255, 99, 132, 0.6)',
-                  'rgba(54, 162, 235, 0.6)',
-                  'rgba(255, 206, 86, 0.6)',
-                  'rgba(75, 192, 192, 0.6)',
-                  'rgba(153, 102, 255, 0.6)',
-                  'rgba(255, 159, 64, 0.6)',
-                ],
-              },
-            ],
-          }}
-        />
+        {pieChartData && pieChartData.categories ? (
+          <Pie
+            data={{
+              labels: pieChartData.categories.map((category) => category.label),
+              datasets: [
+                {
+                  data: pieChartData.itemCounts,
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                  ],
+                },
+              ],
+            }}
+          />
+        ) : (
+          <p>Loading pie chart data...</p>
+        )}
       </div>
     </div>
   );

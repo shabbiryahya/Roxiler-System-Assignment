@@ -5,6 +5,8 @@ import TransactionsTable from './component/TransactionsTable';
 import TransactionStatistics from './component/TransactionStatistics';
 import TransactionsBarChart from './component/TransactionsBarChart';
 import TransactionsPieChart from './component/TransactionsPieChart';
+import TransactionForm from './component/TransactionForm';
+
 
 
 function App() {
@@ -14,6 +16,9 @@ function App() {
     <div className="App">
       <h1>MERN Stack Coding Challenge</h1>
       <div className="container">
+        <div>
+          <TransactionForm/>
+        </div>
         <div className="column">
           <label>Select Month:</label>
           <select onChange={(e) => setSelectedMonth(e.target.value)} value={selectedMonth}>
